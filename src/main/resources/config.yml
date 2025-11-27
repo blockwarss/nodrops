@@ -1,0 +1,6 @@
+# Liste des blocs pour lesquels tu veux supprimer tous les drops.
+# Met ici les noms Spigot des matériaux (enum Material), en MAJUSCULE :
+# Exemple : STONE, DIAMOND_ORE, NETHERRACK, DEEPSLATE_COAL_ORE, etc.
+disabled-blocks:
+  - STONE
+  - DIAMOND_ORE

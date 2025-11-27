@@ -1,0 +1,6 @@
+name: NoDropBlocks
+main: fr.survietiktok.serveurObtention.NoDropPlugin
+version: 1.0.0
+api-version: 1.16
+author: "Now-Heberg"
+description: "Supprime tous les drops des blocs listés dans la config."
