@@ -97,10 +97,20 @@ public class NoDropPlugin extends JavaPlugin implements Listener {
 
     /**
      * Cas 3 : explosions venant d'entités (TNT, Creeper, Wither…)
-     * On détruit quand même le bloc, mais on empêche le mécanisme normal de drop.
+     * + wind charges : elles ne casseront plus de blocs.
      */
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onEntityExplode(EntityExplodeEvent event) {
+
+        // Si l'entité qui explose est un wind charge, on empêche la casse de blocs
+        if (event.getEntity() != null
+                && event.getEntity().getType().name().equalsIgnoreCase("WIND_CHARGE")) {
+            // Explosion visuelle / dégâts sur entités, mais aucun bloc cassé
+            event.blockList().clear();
+            return;
+        }
+
+        // Pour le reste (TNT, creeper, etc.), on applique la logique "no drop" sur les blocs listés
         handleExplosionBlockList(event.blockList());
     }
 
